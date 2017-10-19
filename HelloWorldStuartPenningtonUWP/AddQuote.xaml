@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="HelloWorldStuartPenningtonUWP.AddQuote"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HelloWorldStuartPenningtonUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+   <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+      <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="38,61,0,0" TextWrapping="Wrap" Text="Customer Name:" VerticalAlignment="Top" FontSize="36"/>
+      <TextBox x:Name="firstNameBox" HorizontalAlignment="Left" Margin="326,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24" Width="248" PlaceholderText="First Name"/>
+      <TextBox x:Name="lastNameBox" HorizontalAlignment="Left" Margin="579,68,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24" Width="248" PlaceholderText="Last Name"/>
+      <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="38,152,0,0" TextWrapping="Wrap" Text="Width" VerticalAlignment="Top" FontSize="36"/>
+      <Slider x:Name="widthSlider" HorizontalAlignment="Left" Margin="37,205,0,0" VerticalAlignment="Top" Width="150" Maximum="96" Minimum="24" LargeChange="8" Value="60"/>
+      <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="290,152,0,0" TextWrapping="Wrap" Text="Depth" VerticalAlignment="Top" FontSize="36"/>
+      <Slider x:Name="depthSlider" HorizontalAlignment="Left" Margin="289,205,0,0" VerticalAlignment="Top" Width="150" Maximum="48" Minimum="12" LargeChange="6" Value="30"/>
+      <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="540,152,0,0" TextWrapping="Wrap" Text="# of Drawers" VerticalAlignment="Top" FontSize="36"/>
+      <Slider x:Name="drawerSlider" HorizontalAlignment="Left" Margin="539,205,0,0" VerticalAlignment="Top" Width="150" Maximum="7" LargeChange="3"/>
+      <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="815,152,0,0" TextWrapping="Wrap" Text="# of Desks" VerticalAlignment="Top" FontSize="36"/>
+      <TextBox x:Name="numDesksBox" HorizontalAlignment="Left" Margin="815,205,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" FontSize="24" PlaceholderText="# of Desks" Width="166"/>
+      <ComboBox x:Name="materialBox" HorizontalAlignment="Left" Margin="38,391,0,0" VerticalAlignment="Top" Width="266" Height="49" PlaceholderText="Select A Material..." FontSize="24">
+         <ComboBoxItem>Laminate</ComboBoxItem>
+         <ComboBoxItem>Oak</ComboBoxItem>
+         <ComboBoxItem>Pine</ComboBoxItem>
+         <ComboBoxItem>Rosewood</ComboBoxItem>
+         <ComboBoxItem>Veneer</ComboBoxItem>
+      </ComboBox>
+      <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="38,338,0,0" TextWrapping="Wrap" Text="Material" VerticalAlignment="Top" FontSize="36"/>
+      <ComboBox x:Name="rushDaysBox" HorizontalAlignment="Left" Margin="38,540,0,0" VerticalAlignment="Top" Width="266" Height="49" PlaceholderText="Select Shipping..." FontSize="24">
+         <ComboBoxItem>3 Days</ComboBoxItem>
+         <ComboBoxItem>5 Days</ComboBoxItem>
+         <ComboBoxItem>7 Days</ComboBoxItem>
+         <ComboBoxItem>14 Days</ComboBoxItem>
+      </ComboBox>
+      <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Margin="38,487,0,0" TextWrapping="Wrap" Text="Rush Days" VerticalAlignment="Top" FontSize="36"/>
+      <TextBlock x:Name="textBlock7" HorizontalAlignment="Left" Margin="815,347,0,0" TextWrapping="Wrap" Text="Price:" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+      <TextBlock x:Name="priceDisplayBlock" HorizontalAlignment="Left" Margin="786,448,0,0" TextWrapping="Wrap" Text="$200.00" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
+      <Button x:Name="saveButton" Content="Save Quote" HorizontalAlignment="Left" Margin="398,540,0,0" VerticalAlignment="Top" Height="49" Width="291" FontSize="24"/>
+      <Button x:Name="calcButton" Content="Make Quote" HorizontalAlignment="Left" Margin="398,462,0,0" VerticalAlignment="Top" Height="49" Width="291" FontSize="24" Click="calcButton_Click"/>
+   </Grid>
+</Page>
