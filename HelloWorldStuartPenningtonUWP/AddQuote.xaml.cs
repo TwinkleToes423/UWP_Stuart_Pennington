@@ -30,22 +30,65 @@ namespace HelloWorldStuartPenningtonUWP
 
       private void displayPrice()
       {
-         string mat = materialBox.SelectionBoxItem.ToString();
-
-         this.priceDisplayBlock.Text = "$" + DeskQuote.makeDesk(
-            (int)this.widthSlider.Value,        //Width
-            (int)this.depthSlider.Value,        //Depth
-            (int)this.drawerSlider.Value,      //Drawers
-            rushDaysBox.SelectionBoxItem.ToString()[0],     //Rush days
-            (Desk.Material)Enum.Parse(typeof(Desk.Material),
-            materialBox.SelectionBoxItem.ToString()), // Material
-            int.Parse(this.numDesksBox.Text)         //Number of desks
-            ).ToString("0.00");  //Display 2 decimal places
+         // No last name given
+         if (lastNameBox.Text == "")
+         {
+            ContentDialog rangeErr = new ContentDialog()
+            {
+               Title = "Name Required",
+               Content = "A last name is required for each quote. Company names should be entered in as Last Names.",
+               CloseButtonText = "Ok"
+            };
+            displayError(rangeErr);
+         }
+         // No order size given
+         else if (numDesksBox.Text == "")
+         {
+            ContentDialog rangeErr = new ContentDialog()
+            {
+               Title = "Number of Desks Required",
+               Content = "A number of desks must be entered.",
+               CloseButtonText = "Ok"
+            };
+            displayError(rangeErr);
+         }
+         // Everything is working fine
+         else
+         {
+            try
+            {
+               this.priceDisplayBlock.Text = "$" + DeskQuote.makeDesk(
+               (int)this.widthSlider.Value,        //Width
+               (int)this.depthSlider.Value,        //Depth
+               (int)this.drawerSlider.Value,      //Drawers
+               rushDaysBox.SelectionBoxItem.ToString()[0],     //Rush days
+               (Desk.Material)Enum.Parse(typeof(Desk.Material),
+               materialBox.SelectionBoxItem.ToString()), // Material
+               int.Parse(this.numDesksBox.Text)         //Number of desks
+               ).ToString("0.00");  //Display 2 decimal places
+            }
+            catch
+            {
+               ContentDialog rangeErr = new ContentDialog()
+               {
+                  Title = "Form Incomplete",
+                  Content = "Please make sure all forms have a selected option.",
+                  CloseButtonText = "Ok"
+               };
+               displayError(rangeErr);
+            }
+         }
       }
+
 
       private void calcButton_Click(object sender, RoutedEventArgs e)
       {
          displayPrice();
+      }
+
+      private async void displayError(ContentDialog err)
+      {
+         await err.ShowAsync();
       }
    }
 }

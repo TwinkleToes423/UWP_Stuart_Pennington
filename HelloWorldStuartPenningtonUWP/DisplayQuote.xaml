@@ -1,0 +1,27 @@
+﻿<Page
+    x:Class="HelloWorldStuartPenningtonUWP.DisplayQuote"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:HelloWorldStuartPenningtonUWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+   <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+      <TextBlock x:Name="textBlock0" HorizontalAlignment="Left" Margin="425,10,0,0" TextWrapping="Wrap" Text="Customer Name" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+      <TextBlock x:Name="firstnameResultBlock" HorizontalAlignment="Left" Margin="401,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24"/>
+      <TextBlock x:Name="lastnameResultBlock" HorizontalAlignment="Left" Margin="619,42,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24"/>
+      <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="473,97,0,0" TextWrapping="Wrap" Text="Width" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+      <TextBlock x:Name="widthResultBlock" HorizontalAlignment="Left" Margin="485,134,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24"/>
+      <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="470,184,0,0" TextWrapping="Wrap" Text="Depth" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+      <TextBlock x:Name="depthResultBlock" HorizontalAlignment="Left" Margin="485,221,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24"/>
+      <TextBlock x:Name="textBlock3" HorizontalAlignment="Left" Margin="472,271,0,0" TextWrapping="Wrap" Text="Drawers" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+      <TextBlock x:Name="drawersResultBlock" HorizontalAlignment="Left" Margin="485,308,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24"/>
+      <TextBlock x:Name="textBlock4" HorizontalAlignment="Left" Margin="472,357,0,0" TextWrapping="Wrap" Text="Material" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+      <TextBlock x:Name="materialResultBlock" HorizontalAlignment="Left" Margin="485,394,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24"/>
+      <TextBlock x:Name="textBlock5" HorizontalAlignment="Left" Margin="432,447,0,0" TextWrapping="Wrap" Text="Delivery Days" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+      <TextBlock x:Name="daysResultBlock" HorizontalAlignment="Left" Margin="485,484,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24"/>
+      <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Margin="450,538,0,0" TextWrapping="Wrap" Text="Order Size" VerticalAlignment="Top" FontSize="24" FontWeight="Bold"/>
+      <TextBlock x:Name="numDesksResultBlock" HorizontalAlignment="Left" Margin="485,570,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" FontSize="24"/>
+   </Grid>
+</Page>

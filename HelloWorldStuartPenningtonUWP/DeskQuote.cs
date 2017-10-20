@@ -1,8 +1,14 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
+using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
 
 namespace HelloWorldStuartPenningtonUWP
 {
@@ -14,16 +20,20 @@ namespace HelloWorldStuartPenningtonUWP
       public DateTime QuoteDate { get; set; } // get date from the system
       public decimal QuoteAmount { get; set; } // this is where the calculations for the full PRICE quote save
 
+      //values
+      const string SaveFilePath = "savedQuotes.json";
+      const string RushPricesPath = "rushOrderPrices.txt";   // Path to the config file
+
       public DeskQuote()
       {
          DeskStruct = new Desk();
       }
 
-      public double makeDesk(int width, int depth,
+      public double makeDesk(string first, string last, int width, int depth,
          int nDrawers, char days, Desk.Material mat, int numDesks)
       {
          // Make our desk
-         DeskStruct = new Desk(width, depth, nDrawers, days, mat);
+         DeskStruct = new Desk(first, last, width, depth, nDrawers, days, mat);
 
          // Give back the price
          return calcPrice(numDesks);
@@ -111,10 +121,88 @@ namespace HelloWorldStuartPenningtonUWP
          }
       }
 
-      bool saveDesk()
+      public static void save(DeskQuote quote)
       {
-         // True on success
-         return true;
+         /*
+         // Make a container for our saved desks
+         List<DeskQuote> quotes = new List<DeskQuote>();
+
+         // If a save file already exists, read from and append to it
+         if (File.Exists(SaveFilePath))
+         {
+            // Load all saves
+            string savedQuotes = File.ReadAllText(SaveFilePath);
+
+            // Deserialize the saved list of desks
+            quotes = JsonConvert.DeserializeObject<List<DeskQuote>>(savedQuotes);
+         }
+
+         // Add the current desk to the (possibly empty) list of desks
+         quotes.Add(quote);
+
+         // JSONify
+         string JSONDesks = JsonConvert.SerializeObject(quotes);
+
+         // Save our JSON
+         File.WriteAllText(SaveFilePath, JSONDesks);
+         */
+      }
+
+      /**
+       * <summary></summary>
+       * */
+      public static async Task searchAsync(string name)
+      {
+         List<Desk> desks = new List<Desk>();
+         bool found = false;
+
+         // TODO: Load desks from file
+
+         foreach (var desk in desks)
+         {
+            if (desk.last == name)
+            {
+               // Show loaded quote
+               var currentAV = ApplicationView.GetForCurrentView();
+               var newAV = CoreApplication.CreateNewView();
+               await newAV.Dispatcher.RunAsync(
+                               CoreDispatcherPriority.Normal,
+                               async () =>
+                               {
+                                  var newWindow = Window.Current;
+                                  var newAppView = ApplicationView.GetForCurrentView();
+                                  newAppView.Title = "Quote Window";
+
+                                  var frame = new Frame();
+                                  frame.Navigate(typeof(AddQuote), null);
+                                  newWindow.Content = frame;
+                                  newWindow.Activate();
+
+                                  await ApplicationViewSwitcher.TryShowAsStandaloneAsync(
+                             newAppView.Id,
+                             ViewSizePreference.UseMinimum,
+                             currentAV.Id,
+                             ViewSizePreference.UseMinimum);
+                               });
+
+               found = true;
+            }
+
+            if (found == false)
+            {
+               ContentDialog notFound = new ContentDialog()
+               {
+                  Title = "Quotes Not Found",
+                  Content = "No saved quotes match the search terms.",
+                  CloseButtonText = "Ok"
+               };
+               displayNotFound(notFound);
+            }
+         }
+      }
+      public static async void displayNotFound(ContentDialog d)
+      {
+         await d.ShowAsync();
       }
    }
 }

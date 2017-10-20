@@ -18,6 +18,8 @@ namespace HelloWorldStuartPenningtonUWP
          None = 0
       }
 
+      public string first { get; set; }
+      public string last { get; set; }
       public int Width { get; set; }
       public int Depth { get; set; }
       public int NumDrawers { get; set; }
@@ -32,9 +34,11 @@ namespace HelloWorldStuartPenningtonUWP
       /// <param name="nDrawers"></param>
       /// <param name="days"></param>
       /// <param name="mat"></param>
-      public Desk(int width, int depth,
+      public Desk(string fir, string las, int width, int depth,
          int nDrawers, int days, Desk.Material mat)
       {
+         this.first = fir;
+         this.last = las;
          this.Width = width;
          this.Depth = depth;
          this.NumDrawers = nDrawers;
