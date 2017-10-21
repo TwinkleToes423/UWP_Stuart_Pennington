@@ -10,7 +10,7 @@
    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
       <Button x:Name="addQuoteButton" Content="New Quote" HorizontalAlignment="Left" Margin="100,20,0,0" VerticalAlignment="Top" Height="120" Width="824" FontSize="72" Click="addQuoteButton_Click"/>
       <Button x:Name="button_Copy" Content="View Saved Quotes" HorizontalAlignment="Left" Margin="100,180,0,0" VerticalAlignment="Top" Height="120" Width="824" FontSize="72"/>
-      <Button x:Name="button_Copy1" Content="Search Quotes" HorizontalAlignment="Left" Margin="100,340,0,0" VerticalAlignment="Top" Height="120" Width="824" FontSize="72"/>
+      <Button x:Name="searchQuoteButton" Content="Search Quotes" HorizontalAlignment="Left" Margin="100,340,0,0" VerticalAlignment="Top" Height="120" Width="824" FontSize="72" Click="searchQuoteButton_Click"/>
       <Button x:Name="button_Copy2" Content="Exit" HorizontalAlignment="Left" Margin="100,500,0,0" VerticalAlignment="Top" Height="120" Width="824" FontSize="72"/>
    </Grid>
 </Page>

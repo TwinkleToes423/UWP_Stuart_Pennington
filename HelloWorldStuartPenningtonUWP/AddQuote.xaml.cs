@@ -58,13 +58,15 @@ namespace HelloWorldStuartPenningtonUWP
             try
             {
                this.priceDisplayBlock.Text = "$" + DeskQuote.makeDesk(
-               (int)this.widthSlider.Value,        //Width
-               (int)this.depthSlider.Value,        //Depth
-               (int)this.drawerSlider.Value,      //Drawers
+               firstNameBox.Text,
+               lastNameBox.Text,
+               (int)widthSlider.Value,        //Width
+               (int)depthSlider.Value,        //Depth
+               (int)drawerSlider.Value,      //Drawers
                rushDaysBox.SelectionBoxItem.ToString()[0],     //Rush days
                (Desk.Material)Enum.Parse(typeof(Desk.Material),
                materialBox.SelectionBoxItem.ToString()), // Material
-               int.Parse(this.numDesksBox.Text)         //Number of desks
+               int.Parse(numDesksBox.Text)         //Number of desks
                ).ToString("0.00");  //Display 2 decimal places
             }
             catch
