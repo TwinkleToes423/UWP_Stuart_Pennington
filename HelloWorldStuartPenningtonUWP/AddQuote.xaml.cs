@@ -92,5 +92,10 @@ namespace HelloWorldStuartPenningtonUWP
       {
          await err.ShowAsync();
       }
-   }
+
+        private async void saveButton_ClickAsync(object sender, RoutedEventArgs e)
+        {
+            await DeskQuote.saveAsync(DeskQuote);
+        }
+    }
 }

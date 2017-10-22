@@ -36,7 +36,7 @@
       <TextBlock x:Name="textBlock6" HorizontalAlignment="Left" Margin="38,487,0,0" TextWrapping="Wrap" Text="Rush Days" VerticalAlignment="Top" FontSize="36"/>
       <TextBlock x:Name="textBlock7" HorizontalAlignment="Left" Margin="815,347,0,0" TextWrapping="Wrap" Text="Price:" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
       <TextBlock x:Name="priceDisplayBlock" HorizontalAlignment="Left" Margin="786,448,0,0" TextWrapping="Wrap" Text="$200.00" VerticalAlignment="Top" FontSize="36" FontWeight="Bold"/>
-      <Button x:Name="saveButton" Content="Save Quote" HorizontalAlignment="Left" Margin="398,540,0,0" VerticalAlignment="Top" Height="49" Width="291" FontSize="24"/>
+      <Button x:Name="saveButton" Content="Save Quote" HorizontalAlignment="Left" Margin="398,540,0,0" VerticalAlignment="Top" Height="49" Width="291" FontSize="24" Click="saveButton_ClickAsync"/>
       <Button x:Name="calcButton" Content="Make Quote" HorizontalAlignment="Left" Margin="398,462,0,0" VerticalAlignment="Top" Height="49" Width="291" FontSize="24" Click="calcButton_Click"/>
    </Grid>
 </Page>

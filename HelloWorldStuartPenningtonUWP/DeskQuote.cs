@@ -121,32 +121,39 @@ namespace HelloWorldStuartPenningtonUWP
          }
       }
 
-      public static void save(DeskQuote quote)
+      public static async Task saveAsync(DeskQuote quote)
       {
-         /*
-         // Make a container for our saved desks
-         List<DeskQuote> quotes = new List<DeskQuote>();
+            // Create sample file; replace if exists.
+            Windows.Storage.StorageFolder storageFolder = Windows.Storage.ApplicationData.Current.LocalFolder;
+            Windows.Storage.StorageFile writeFile = await storageFolder.CreateFileAsync("sample text", Windows.Storage.CreationCollisionOption.ReplaceExisting);
 
-         // If a save file already exists, read from and append to it
-         if (File.Exists(SaveFilePath))
-         {
-            // Load all saves
-            string savedQuotes = File.ReadAllText(SaveFilePath);
+            Windows.Storage.StorageFile readFile = await storageFolder.GetFileAsync(Convert.ToString(quote));
 
-            // Deserialize the saved list of desks
-            quotes = JsonConvert.DeserializeObject<List<DeskQuote>>(savedQuotes);
-         }
 
-         // Add the current desk to the (possibly empty) list of desks
-         quotes.Add(quote);
+            /*
+            // Make a container for our saved desks
+            List<DeskQuote> quotes = new List<DeskQuote>();
 
-         // JSONify
-         string JSONDesks = JsonConvert.SerializeObject(quotes);
+            // If a save file already exists, read from and append to it
+            if (File.Exists(SaveFilePath))
+            {
+               // Load all saves
+               string savedQuotes = File.ReadAllText(SaveFilePath);
 
-         // Save our JSON
-         File.WriteAllText(SaveFilePath, JSONDesks);
-         */
-      }
+               // Deserialize the saved list of desks
+               quotes = JsonConvert.DeserializeObject<List<DeskQuote>>(savedQuotes);
+            }
+
+            // Add the current desk to the (possibly empty) list of desks
+            quotes.Add(quote);
+
+            // JSONify
+            string JSONDesks = JsonConvert.SerializeObject(quotes);
+
+            // Save our JSON
+            File.WriteAllText(SaveFilePath, JSONDesks);
+            */
+        }
 
       /**
        * <summary></summary>
